@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap');
+
+/* BODY & FLOWER BACKGROUND */
+body {
+  font-family: 'Quicksand', Arial, sans-serif;
+  margin: 0;
+  color: #222;
+  background: linear-gradient(135deg, #ffe1ec 0%, #b2f7ef 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* FLOWER BG SVG soft pink & green */
+.flower-bg {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    url('data:image/svg+xml;utf8,<svg width="92" height="92" xmlns="http://www.w3.org/2000/svg"><g><ellipse cx="46" cy="46" rx="25" ry="25" fill="%23ffe1ec"/><ellipse cx="46" cy="14" rx="12" ry="15" fill="%23b2f7ef"/><ellipse cx="78" cy="46" rx="12" ry="15" fill="%23b2f7ef"/><ellipse cx="14" cy="46" rx="12" ry="15" fill="%23b2f7ef"/><ellipse cx="46" cy="78" rx="12" ry="15" fill="%23b2f7ef"/><circle cx="46" cy="46" r="10" fill="%23fff7fa"/></g></svg>');
+  background-repeat: repeat;
+  background-size: 160px 160px;
+  opacity: 0.19;
+}
+
+/* Butterfly container to place flying butterflies */
+.butterfly-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Butterfly SVG styling */
+.butterfly {
+  position: absolute;
+  width: 60px;
+  height: 54px;
+  pointer-events: none;
+  will-change: transform;
+  opacity: 0.88;
+  filter: drop-shadow(0 4px 18px #e7548090);
+  transition: filter 0.2s;
+  z-index: 12;
+  animation: flutter 0.7s infinite alternate;
+}
+@keyframes flutter {
+  from { transform: scaleY(1); }
+  to   { transform: scaleY(1.07) rotate(-1deg);}
+}
+.butterfly:hover {
+  filter: drop-shadow(0 6px 28px #e75480ee) brightness(1.09);
+  opacity: 1;
+}
+
+/* NAVBAR with soft animation */
+nav {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+nav ul li {
+  margin: 0;
+}
+nav ul li a {
+  display: block;
+  padding: 18px 30px;
+  color: #e75480;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 30px;
+  margin: 6px;
+  background: linear-gradient(90deg, #fff 60%, #e5f9f7 100%);
+  box-shadow: 0 2px 8px 0 rgba(231,84,128,0.04);
+  transition:
+    background 0.28s cubic-bezier(.4,0,.2,1),
+    color 0.2s,
+    transform 0.18s cubic-bezier(.4,0,.2,1),
+    box-shadow 0.28s cubic-bezier(.4,0,.2,1);
+}
+nav ul li a.active,
+nav ul li a:hover {
+  background: linear-gradient(90deg, #f3c4e6 30%, #afffe0 100%);
+  color: #fff;
+  transform: translateY(-3px) scale(1.06) rotate(-2deg);
+  box-shadow: 0 8px 24px -8px #e7548077;
+  text-shadow: 0 2px 8px #e7548044;
+}
+
+/* PROFILE */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  background: linear-gradient(90deg, #fff0f7 60%, #e7fffa 100%);
+  padding: 18px 28px;
+  border-radius: 18px;
+  box-shadow: 0 3px 16px 0 #ffe1ec33;
+}
+.profile img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #e75480;
+  background: #fff;
+}
+.profile h2 {
+  margin-bottom: 4px;
+  margin-top: 0;
+  font-family: 'Pacifico', cursive;
+  color: #e75480;
+}
+
+/* SECTION */
+section {
+  max-width: 1000px;
+  margin: 56px auto 0 auto;
+  padding: 32px 24px;
+  background: rgba(255,255,255,0.98);
+  border-radius: 18px;
+  box-shadow: 0 2px 20px 0 #e7548012;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 20;
+}
+
+h1 {
+  margin-top: 0;
+  color: #e75480;
+  letter-spacing: 1px;
+  font-family: 'Pacifico', cursive;
+  font-size: 2.1em;
+}
+.home-flex {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.home-flex > div {
+  flex: 1;
+  min-width: 200px;
+}
+.home-flex ul {
+  padding-left: 20px;
+}
+
+.tech-cards {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tech-card {
+  background: linear-gradient(120deg, #fff0f7 60%, #e7fffa 100%);
+  border-radius: 12px;
+  padding: 24px 16px;
+  text-align: center;
+  box-shadow: 0 2px 8px #e7548010;
+  flex: 1 1 220px;
+  max-width: 260px;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.tech-card:hover {
+  transform: translateY(-6px) scale(1.04) rotate(-2deg);
+  box-shadow: 0 8px 24px -8px #e7548040;
+}
+.tech-card img {
+  width: 60px;
+  margin-bottom: 12px;
+}
+
+.project-gallery, .achievement-gallery {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.project-item, .achievement-item {
+  background: linear-gradient(120deg, #fff0f7 60%, #e7fffa 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #e7548010;
+  max-width: 320px;
+  flex: 1 1 220px;
+  text-align: center;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.project-item:hover, .achievement-item:hover {
+  transform: translateY(-5px) scale(1.03) rotate(-1.5deg);
+  box-shadow: 0 8px 24px -8px #e7548040;
+}
+.project-item img, .achievement-item img {
+  width: 100%;
+  display: block;
+}
+.caption {
+  padding: 12px;
+  font-size: 1em;
+  color: #222;
+}
+
+.contact-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.contact-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #fff0f7 60%, #e7fffa 100%);
+  padding: 14px 22px;
+  border-radius: 8px;
+  color: #222;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition:
+    background 0.18s,
+    color 0.18s,
+    transform 0.16s,
+    box-shadow 0.18s;
+  box-shadow: 0 2px 8px #e7548010;
+}
+.contact-list a:hover {
+  background: linear-gradient(90deg, #f3c4e6 40%, #afffe0 100%);
+  color: #e75480;
+  transform: scale(1.03) translateY(-2px) rotate(-2deg);
+  box-shadow: 0 8px 20px -8px #e7548040;
+}
+
+@media (max-width: 800px) {
+  .home-flex, .tech-cards, .project-gallery, .achievement-gallery, .contact-list {
+    flex-direction: column;
+    gap: 16px;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav ul li a {
+    margin: 8px 0;
+  }
+}
